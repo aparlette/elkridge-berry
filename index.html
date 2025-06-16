@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elkridge Hurricanes 12U Baseball</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #005030;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: #F47321;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #F47321;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 70px;
+            min-height: calc(100vh - 140px);
+        }
+
+        .page {
+            display: none;
+            padding: 40px 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #F47321 0%, #ff8c42 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #005030;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #003d24;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #005030;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #F47321;
+        }
+
+        .info-card h3 {
+            color: #005030;
+            margin-bottom: 1rem;
+        }
+
+        /* Tryouts Page Specific */
+        .tryouts-hero {
+            background: #005030;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .requirements-list {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .requirements-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .requirements-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .requirements-list li:before {
+            content: '⚾ ';
+            color: #F47321;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #005030;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <div class="logo-icon">EC</div>
+                Elkridge Hurricanes
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('tryouts')">Tryouts</a></li>
+                <li><a href="/register" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScO8qWLUXZtgk8mQNh06Wr5HDTKpt1YTa5vjHJqurpGo4yAxg/viewform?usp=header', '_blank'); return false;">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <h1>Elkridge Hurricanes</h1>
+                    <p>2025-26 12U Berry - Rising 12U Travel Baseball</p>
+                    <a href="#" class="cta-button" onclick="showPage('tryouts')">Learn About Tryouts</a>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="container">
+                    <h2 class="section-title">Join Our Team</h2>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>About Us</h3>
+                            <p>The Elkridge Hurricanes 12U baseball team is dedicated to developing young athletes through competitive play and quality coaching.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Tryouts</h3>
+                            <p>We hold tryouts for motivated players who want to compete at a high level. Learn more about our tryout process.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Registration</h3>
+                            <p>Ready to try out? Complete our online registration form to secure your spot at our next tryout session.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tryouts Page -->
+        <div id="tryouts" class="page">
+            <section class="tryouts-hero">
+                <div class="container">
+                    <h1>Rising 12U Travel Baseball Tryouts</h1>
+                    <p><strong>Elkridge Hurricanes 2025-26 12U Berry</strong></p>
+                    <p>Cooperstown Bound - Summer 2026!</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="container">
+                    <div style="background: #F47321; color: white; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 3rem;">
+                        <h2 style="margin-bottom: 1rem;">🗓️ Tryout Dates</h2>
+                        <div style="font-size: 1.3rem; margin-bottom: 1rem;">
+                            <strong>Thursday, July 10 - 6:00 PM</strong><br>
+                            <strong>Thursday, July 17 - 6:00 PM</strong>
+                        </div>
+                        <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                            <strong>📍 Location:</strong> Elkridge Landing Middle School<br>
+                            7085 Montgomery Rd, Elkridge<br>
+                            Field 16 (Fields behind school on right)
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic;">Contact us for alternate dates if needed</p>
+                    </div>
+
+                    <h2 class="section-title">Player Eligibility</h2>
+                    <div class="info-card" style="text-align: center; margin-bottom: 3rem;">
+                        <h3>Age Requirements</h3>
+                        <p style="font-size: 1.2rem; color: #005030;"><strong>Players born after May 1, 2013</strong></p>
+                        <p>(Cannot turn 13 before May 1, 2026)</p>
+                    </div>
+
+                    <h2 class="section-title">What Makes Our Team Special</h2>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>🏆 Cooperstown Dreams Park</h3>
+                            <p>Will play at the legendary Cooperstown Dreams Park in Summer 2026 - every player's dream come true!</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>👨‍🏫 Expert Coaching</h3>
+                            <p>Experienced coaches including former NCAA Division 1 Baseball players who know what it takes to develop talent.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>📅 Complete Program</h3>
+                            <p>Fall ball, winter workouts, and spring/summer MABA and tournament schedule for year-round development.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>🏠 Local Convenience</h3>
+                            <p>Practice and home games right here in Elkridge, MD - convenient for families and builds local community.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Season Structure</h2>
+                    <div class="requirements-list">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="background: #f8f9fa; margin: 0.5rem 0; padding: 1rem; border-radius: 8px; border-left: 4px solid #F47321;">
+                                <strong>Fall Ball:</strong> Skills development and team building
+                            </li>
+                            <li style="background: #f8f9fa; margin: 0.5rem 0; padding: 1rem; border-radius: 8px; border-left: 4px solid #005030;">
+                                <strong>Winter Workouts:</strong> Indoor training and conditioning
+                            </li>
+                            <li style="background: #f8f9fa; margin: 0.5rem 0; padding: 1rem; border-radius: 8px; border-left: 4px solid #F47321;">
+                                <strong>Spring/Summer:</strong> MABA league play and tournament schedule
+                            </li>
+                            <li style="background: #f8f9fa; margin: 0.5rem 0; padding: 1rem; border-radius: 8px; border-left: 4px solid #005030;">
+                                <strong>Summer 2026:</strong> Cooperstown Dreams Park experience
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                        <h3 style="color: #005030; text-align: center; margin-bottom: 1rem;">⚾ Our Philosophy</h3>
+                        <p style="text-align: center; font-style: italic;">
+                            "We encourage players to play multiple sports, but for the Spring season we expect our team to be the primary commitment. 
+                            This ensures the best development for both individual players and team chemistry."
+                        </p>
+                    </div>
+
+                    <h2 class="section-title">What to Bring to Tryouts</h2>
+                    <div class="requirements-list">
+                        <ul>
+                            <li>Baseball glove</li>
+                            <li>Baseball bat (if you have one)</li>
+                            <li>Baseball cleats</li>
+                            <li>Athletic clothes suitable for baseball</li>
+                            <li>Water bottle</li>
+                            <li>Positive attitude and willingness to learn</li>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: center; margin: 3rem 0;">
+                        <h2 class="section-title">Ready to Try Out?</h2>
+                        <p style="margin-bottom: 2rem; font-size: 1.1rem;">Registration is required for all tryout sessions.</p>
+                        <a href="/register" class="cta-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScO8qWLUXZtgk8mQNh06Wr5HDTKpt1YTa5vjHJqurpGo4yAxg/viewform?usp=header', '_blank'); return false;">
+                            Register for Tryouts
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Elkridge Hurricanes Baseball | <a href="https://www.elkridgehurricanes.org" style="color: #F47321;">elkridgehurricanes.org</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update URL without refreshing
+            history.pushState(null, null, pageId === 'home' ? '/' : '/' + pageId);
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            const path = window.location.pathname;
+            if (path === '/tryouts') {
+                showPage('tryouts');
+            } else {
+                showPage('home');
+            }
+        });
+
+        // Handle direct URL access
+        window.addEventListener('load', function() {
+            const path = window.location.pathname;
+            if (path === '/tryouts') {
+                showPage('tryouts');
+            } else if (path === '/register') {
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLScO8qWLUXZtgk8mQNh06Wr5HDTKpt1YTa5vjHJqurpGo4yAxg/viewform?usp=header', '_blank');
+                showPage('home');
+            } else {
+                showPage('home');
+            }
+        });
+    </script>
+</body>
+</html>
